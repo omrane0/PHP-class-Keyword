@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+class MyClass {
+  public $amount;
+  public function __clone() {
+    $value = $this->amount;
+    unset($this->amount); // Unset breaks references
+    $this->amount = $value;
+  }
+}
+
+// Create an object with a reference
+$value = 5;
+$obj = new MyClass();
+$obj->amount = &$value;
+
+// Clone the object
+$copy = clone $obj;
+
+// Change the value in the original object
+$obj->amount = 6;
+
+// The copy is not changed
+print_r($copy);
+?>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+MyClass Object
+(
+    [amount] => 5
+)

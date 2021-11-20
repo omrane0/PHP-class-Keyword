@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+class MyClass {
+  public $number = 5;
+}
+
+$obj = new MyClass();
+echo $obj->number;
+?>
+
+</body>
+</html>
+
+
+
+
+5
